@@ -1,0 +1,23 @@
+<div class="customFilter">
+  <div>
+    <button (click)="showHideFilterSelect()">
+      <span>{{currentFilter ? 'Current filter: ' + currentFilter.label : 'Select filter'}}</span>
+    </button>
+
+    <custom-drop-down *ngIf="showFilterSelect" [options]="filterOptionsAvailable"
+                      (clickOutside)="showHideFilterSelect()" [delayClickOutsideInit]="true"
+                      (optionClicked)="filterSelected($event)"></custom-drop-down>
+  </div>
+  <div>
+    <button (click)="showHideSortingSelect()">
+      <span>{{currentSorting ? 'Sorted by: ' + currentSorting.label : 'Sort by'}}</span>
+    </button>
+
+    <custom-drop-down *ngIf="showSortingSelect" [options]="sortingOptionsAvailable"
+                      (clickOutside)="showHideSortingSelect()" [delayClickOutsideInit]="true"
+                      (optionClicked)="sortingSelected($event)"></custom-drop-down>
+  </div>
+  <button (click)="clearFilters()">
+    <span>X Clear filters</span>
+  </button>
+</div>

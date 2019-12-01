@@ -1,0 +1,7 @@
+<div class="dropDown" @basicEnterLeave (clickOutside)="onClickOutside()" [delayClickOutsideInit]="true">
+  <ul>
+    <li *ngFor="let option of options" (click)="onOptionsClick($event, option)">
+      {{option.label}}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,31 @@
+.dropDown {
+  position: fixed;
+  border: 1px solid #CCCCCC;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: white;
+  z-index: 2;
+  transition: all 0.1s ease;
+
+  &:hover {
+    box-shadow: 0 8px 8px rgba(56, 56, 56, 0.07);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+
+    li {
+      display: flex;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: rgba(#123456, 0.03);
+        color: green;
+      }
+    }
+  }
+}

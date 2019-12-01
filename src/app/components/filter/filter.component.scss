@@ -1,0 +1,27 @@
+.customFilter {
+  padding: 20px;
+  display: flex;
+
+  button {
+    margin-right: 20px;
+    padding: 0 15px;
+    height: 36px;
+    box-sizing: border-box;
+    border-radius: 32px;
+    cursor: pointer;
+    background: rgba(green, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+
+    &:hover {
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), green;
+      border: 1px solid green;
+    }
+
+    &:active {
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), green;
+      border: 1px solid green;
+    }
+  }
+}

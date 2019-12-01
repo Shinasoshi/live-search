@@ -48,41 +48,31 @@ export class AppComponent implements OnInit {
   }
 
   prepareElements() {
-    this.preparedElements = this.elements;
+    let elementsToPrepare = [...this.elements];
 
     if (this.filter) {
-      this.preparedElements = this.preparedElements.filter(element => element.format === this.filter.value);
+      elementsToPrepare = elementsToPrepare.filter(element => element.format === this.filter.value);
     }
 
     if (this.sort && this.sort.value === 'ASC') {
-      this.preparedElements = this.preparedElements.sort((a, b) => {
-          if (a.label < b.label) {
-            return -1;
-          }
-          if (a.label > b.label) {
-            return 1;
-          }
-          return 0;
-        }
-      );
+      elementsToPrepare = elementsToPrepare.sort(
+        (currentElement: CustomElementInterface, nextElement: CustomElementInterface) =>  {
+          return currentElement.label.localeCompare(nextElement.label);
+        });
     }
 
     if (this.sort && this.sort.value === 'DESC') {
-      this.preparedElements = this.preparedElements.sort((a, b) => {
-          if (a.label > b.label) {
-            return -1;
-          }
-          if (a.label < b.label) {
-            return 1;
-          }
-          return 0;
-        }
-      );
+      elementsToPrepare = elementsToPrepare.sort(
+        (currentElement: CustomElementInterface, nextElement: CustomElementInterface) =>  {
+          return nextElement.label.localeCompare(currentElement.label);
+        });
     }
 
     if (this.search) {
-      this.preparedElements = this.preparedElements.filter(element => element.label.includes(this.search));
+      elementsToPrepare = elementsToPrepare.filter(element => element.label.includes(this.search));
     }
+
+    this.preparedElements = elementsToPrepare;
   }
 
   clearFilters() {
